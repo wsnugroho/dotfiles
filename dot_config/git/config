@@ -1,0 +1,9 @@
+[user]
+	name = wsnugroho
+	email = wisnunugroho614@gmail.com
+
+[pull]
+	rebase = false
+
+[init]
+	defaultBranch = main
