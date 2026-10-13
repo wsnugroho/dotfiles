@@ -1,0 +1,25 @@
+#!/bin/bash
+# Installs packages missing from packages/*.txt. Re-runs when a list changes.
+# pacman.txt hash: {{ include "packages/pacman.txt" | sha256sum }}
+# aur.txt hash: {{ include "packages/aur.txt" | sha256sum }}
+set -euo pipefail
+command -v pacman >/dev/null || exit 0
+
+dir="{{ .chezmoi.sourceDir }}/packages"
+missing() { comm -23 <(sort -u "$1") <(pacman -Qq | sort -u); }
+
+native=$(missing "$dir/pacman.txt")
+if [[ -n $native ]]; then
+  echo "Installing pacman packages:" $native
+  sudo pacman -S --needed $native
+fi
+
+aur=$(missing "$dir/aur.txt")
+if [[ -n $aur ]]; then
+  if command -v yay >/dev/null; then
+    echo "Installing AUR packages:" $aur
+    yay -S --needed $aur
+  else
+    echo "yay not found, skipping AUR packages:" $aur
+  fi
+fi

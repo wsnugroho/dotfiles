@@ -1,0 +1,5 @@
+adwaita-qt6
+herdr
+nuvio-linux-bin
+opennow
+orca-ide-bin
