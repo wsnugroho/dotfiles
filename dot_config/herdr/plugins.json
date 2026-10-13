@@ -1,0 +1,186 @@
+[
+  {
+    "plugin_id": "herdr.auto-title",
+    "name": "Auto Title",
+    "version": "0.11.0",
+    "min_herdr_version": "0.8.2",
+    "description": "Automatically generates contextual tab titles",
+    "manifest_path": "/home/wsnugroho/.config/herdr/plugins/github/herdr.auto-title-4b7d61f48ce8/herdr-plugin.toml",
+    "plugin_root": "/home/wsnugroho/.config/herdr/plugins/github/herdr.auto-title-4b7d61f48ce8",
+    "enabled": true,
+    "platforms": [
+      "linux",
+      "macos",
+      "windows"
+    ],
+    "build": [
+      {
+        "platforms": [
+          "linux",
+          "macos"
+        ],
+        "command": [
+          "go",
+          "build",
+          "-o",
+          "herdr-auto-title",
+          "./cmd/herdr-auto-title"
+        ]
+      },
+      {
+        "platforms": [
+          "windows"
+        ],
+        "command": [
+          "go",
+          "build",
+          "-o",
+          "herdr-auto-title.exe",
+          "./cmd/herdr-auto-title"
+        ]
+      }
+    ],
+    "startup": [
+      {
+        "platforms": [
+          "linux",
+          "macos"
+        ],
+        "command": [
+          "./herdr-auto-title"
+        ]
+      },
+      {
+        "platforms": [
+          "windows"
+        ],
+        "command": [
+          "./herdr-auto-title.exe"
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "id": "restart",
+        "title": "Auto Title: restart",
+        "description": "Start a fresh Auto Title in place of the running one",
+        "contexts": [
+          "global"
+        ],
+        "command": [
+          "./herdr-auto-title",
+          "restart"
+        ]
+      }
+    ],
+    "source": {
+      "kind": "github",
+      "owner": "kryptamine",
+      "repo": "herdr-auto-title",
+      "resolved_commit": "b840874b932b9adc6b7162b8193fceaa04e80be7",
+      "managed_path": "/home/wsnugroho/.config/herdr/plugins/github/herdr.auto-title-4b7d61f48ce8",
+      "installed_unix_ms": 1790832269521
+    }
+  },
+  {
+    "plugin_id": "persiyanov.reviewr",
+    "name": "reviewr",
+    "version": "0.39.0",
+    "min_herdr_version": "0.7.5",
+    "description": "Review agent-written diffs beside the chat and add line comments to the agent input.",
+    "manifest_path": "/home/wsnugroho/.config/herdr/plugins/github/persiyanov.reviewr-e87b654a74f8/herdr-plugin.toml",
+    "plugin_root": "/home/wsnugroho/.config/herdr/plugins/github/persiyanov.reviewr-e87b654a74f8",
+    "enabled": true,
+    "platforms": [
+      "macos",
+      "linux"
+    ],
+    "build": [
+      {
+        "command": [
+          "bash",
+          "herdr/install.sh"
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "id": "close",
+        "title": "reviewr: close pane",
+        "contexts": [
+          "pane",
+          "workspace"
+        ],
+        "command": [
+          "bash",
+          "herdr/pane.sh",
+          "close"
+        ]
+      },
+      {
+        "id": "open",
+        "title": "reviewr: open pane",
+        "contexts": [
+          "pane",
+          "workspace"
+        ],
+        "command": [
+          "bash",
+          "herdr/pane.sh",
+          "open"
+        ]
+      },
+      {
+        "id": "toggle",
+        "title": "reviewr: toggle pane",
+        "contexts": [
+          "pane",
+          "workspace"
+        ],
+        "command": [
+          "bash",
+          "herdr/pane.sh",
+          "toggle"
+        ]
+      }
+    ],
+    "events": [
+      {
+        "on": "worktree.created",
+        "command": [
+          "bash",
+          "herdr/pane.sh",
+          "auto-open"
+        ]
+      },
+      {
+        "on": "worktree.opened",
+        "command": [
+          "bash",
+          "herdr/pane.sh",
+          "auto-open"
+        ]
+      }
+    ],
+    "panes": [
+      {
+        "id": "pane",
+        "title": "reviewr",
+        "placement": "split",
+        "command": [
+          "sh",
+          "-c",
+          "exec \"$HERDR_PLUGIN_ROOT/bin/herdr-reviewr\""
+        ]
+      }
+    ],
+    "source": {
+      "kind": "github",
+      "owner": "persiyanov",
+      "repo": "herdr-reviewr",
+      "resolved_commit": "cd618b48dc1f4d2cc092f3f26827ac72fb44773e",
+      "managed_path": "/home/wsnugroho/.config/herdr/plugins/github/persiyanov.reviewr-e87b654a74f8",
+      "installed_unix_ms": 1790822308122
+    }
+  }
+]

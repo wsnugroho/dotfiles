@@ -1,0 +1,19 @@
+onboarding = false
+
+[ui.toast]
+delivery = "terminal"
+
+[ui]
+status_indicators = "symbols"
+
+[theme]
+name = "kanagawa"
+auto_switch = false
+
+[keys]
+prefix = "ctrl+a"
+
+[[keys.command]]
+key = "cmd+r"
+type = "plugin_action"
+command = "persiyanov.reviewr.toggle"
