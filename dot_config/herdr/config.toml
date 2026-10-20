@@ -14,6 +14,7 @@ auto_switch = false
 prefix = "ctrl+a"
 
 [[keys.command]]
-key = "cmd+r"
+key = "prefix+r"
+description = "toggle reviewr"
 type = "plugin_action"
 command = "persiyanov.reviewr.toggle"

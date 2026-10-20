@@ -10,7 +10,7 @@ set -gx VISUAL code
 set -gx SSH_AUTH_SOCK /home/wsnugroho/.bitwarden-ssh-agent.sock
 
 # Disable the default greeting
-set -g fish_greeting ""
+function fish_greeting; end
 
 # Command-line tools
 zoxide init fish | source
