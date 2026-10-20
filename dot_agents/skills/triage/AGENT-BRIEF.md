@@ -32,6 +32,10 @@ The agent needs to know when it's done. Every agent brief must have concrete, te
 - **Good:** "Running `gh issue list --label needs-triage` returns issues that have been through initial classification"
 - **Bad:** "Triage should work correctly"
 
+### Record verification evidence
+
+Keep what triage verified separate from what the agent is expected to deliver. State whether the reported behavior was reproduced or the PR was checked, and summarize the evidence. If verification was not possible, say why rather than implying the claim is confirmed.
+
 ### Explicit scope boundaries
 
 State what is out of scope. This prevents the agent from gold-plating or making assumptions about adjacent features.
@@ -51,6 +55,9 @@ For enhancements, this is the status quo the feature builds on.
 **Desired behavior:**
 Describe what should happen after the agent's work is complete.
 Be specific about edge cases and error conditions.
+
+**Verification:**
+State what was checked and what happened, or why verification was not possible.
 
 **Key interfaces:**
 - `TypeName`: what needs to change and why
@@ -85,6 +92,9 @@ that end mid-word (e.g. "Use when the user wants to confi").
 **Desired behavior:**
 Truncation should break at the last word boundary before 1024 characters
 and append "..." to indicate truncation.
+
+**Verification:**
+Reproduced with a description longer than 1024 characters; it currently ends mid-word.
 
 **Key interfaces:**
 - The `SkillMetadata` type's `description` field: no type change needed,
@@ -123,6 +133,9 @@ Rejected feature requests should be documented in `.out-of-scope/<concept>.md`
 files that capture the decision, reasoning, and links to all issues that
 requested the feature. When triaging new issues, these files should be
 checked for matches.
+
+**Verification:**
+Confirmed that the current workflow closes rejected feature requests without a persistent record.
 
 **Key interfaces:**
 - Markdown file format in `.out-of-scope/`: each file should have a
@@ -165,6 +178,9 @@ no test coverage.
 With `--json`, all output (including errors) is well-formed JSON on stdout,
 and the command's exit codes are unchanged. The existing human-readable output
 is untouched when the flag is absent.
+
+**Verification:**
+The PR's happy path was checked and works; the error path and test coverage remain unverified.
 
 **Key interfaces:**
 - The command's error path should emit `{ "error": string }` under `--json`
