@@ -1,20 +1,31 @@
 onboarding = false
 
-[ui.toast]
-delivery = "terminal"
+[theme]
+name = "terminal"
 
 [ui]
+prompt_new_tab_name = false
+show_agent_labels_on_pane_borders = true
+agent_panel_sort = "priority"
 status_indicators = "symbols"
 
-[theme]
-name = "kanagawa"
-auto_switch = false
+[ui.toast]
+delivery = "system"
+delay_seconds = 3
 
 [keys]
 prefix = "ctrl+a"
+last_pane = "prefix+;"
+split_vertical = "prefix+|"
+split_horizontal = "prefix+minus"
+next_agent = "prefix+."
+previous_agent = "prefix+,"
 
 [[keys.command]]
 key = "prefix+r"
-description = "toggle reviewr"
+description = "reviewr reviewr: toggle pane"
 type = "plugin_action"
 command = "persiyanov.reviewr.toggle"
+
+[experimental]
+pane_history = true
