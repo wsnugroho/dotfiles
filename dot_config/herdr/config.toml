@@ -10,22 +10,90 @@ agent_panel_sort = "priority"
 status_indicators = "symbols"
 
 [ui.toast]
-delivery = "system"
+delivery = "herdr"
 delay_seconds = 3
 
 [keys]
 prefix = "ctrl+a"
 last_pane = "prefix+;"
-split_vertical = "prefix+|"
+split_vertical = "prefix+\\"
 split_horizontal = "prefix+minus"
 next_agent = "prefix+."
 previous_agent = "prefix+,"
 
+[experimental]
+kitty_graphics = true
+pane_history = true
+
+# herder-reviwr
+
 [[keys.command]]
 key = "prefix+r"
-description = "reviewr reviewr: toggle pane"
+description = "reviewr: toggle pane"
 type = "plugin_action"
 command = "persiyanov.reviewr.toggle"
 
-[experimental]
-pane_history = true
+# plannotator herdr-annotate
+
+[[keys.command]]
+key = "prefix+a"
+description = "annotate: comment on selected text"
+type = "plugin_action"
+command = "annotate.capture"
+
+[[keys.command]]
+key = "prefix+shift+a"
+description = "annotate: copy all comments as Markdown"
+type = "plugin_action"
+command = "annotate.copy-context"
+
+[[keys.command]]
+key = "prefix+m"
+description = "annotate: manage annotations"
+type = "plugin_action"
+command = "annotate.manage"
+
+[[keys.command]]
+key = "prefix+alt+o"
+description = "annotate: review Markdown file/folder"
+type = "plugin_action"
+command = "annotate.open"
+
+[[keys.command]]
+key = "prefix+shift+o"
+description = "annotate: review agent's last reply"
+type = "plugin_action"
+command = "annotate.last"
+
+[[keys.command]]
+key = "prefix+t"
+description = "annotate: review terminal text"
+type = "plugin_action"
+command = "annotate.terminal"
+
+# herdr-file-viewer
+
+[[keys.command]]
+key = "prefix+f"
+type = "shell"
+command = "herdr plugin pane open --plugin herdr-file-viewer --entrypoint file-viewer --placement overlay --focus"
+description = "open file viewer in overlay"
+
+[[keys.command]]
+key = "prefix+shift+f"
+type = "plugin_action"
+command = "herdr-file-viewer.open-file-viewer-tab"
+description = "open file viewer in tab"
+
+[[keys.command]]
+key = "prefix+d"
+type = "plugin_action"
+command = "herdr-file-viewer.open-file-viewer-at"
+description = "open file viewer at... (split)"
+
+[[keys.command]]
+key = "prefix+alt+d"
+type = "plugin_action"
+command = "herdr-file-viewer.open-file-viewer-at-tab"
+description = "open file viewer at... (tab)"
+
