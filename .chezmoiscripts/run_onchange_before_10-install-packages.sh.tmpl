@@ -1,11 +1,11 @@
 #!/bin/bash
-# Installs packages missing from packages/*.txt. Re-runs when a list changes.
-# pacman.txt hash: {{ include "packages/pacman.txt" | sha256sum }}
-# aur.txt hash: {{ include "packages/aur.txt" | sha256sum }}
+# Installs packages missing from system/packages/*.txt. Re-runs when a list changes.
+# pacman.txt hash: {{ include "system/packages/pacman.txt" | sha256sum }}
+# aur.txt hash: {{ include "system/packages/aur.txt" | sha256sum }}
 set -euo pipefail
 command -v pacman >/dev/null || exit 0
 
-dir="{{ .chezmoi.sourceDir }}/packages"
+dir="{{ .chezmoi.sourceDir }}/system/packages"
 missing() { comm -23 <(sort -u "$1") <(pacman -Qq | sort -u); }
 
 native=$(missing "$dir/pacman.txt")

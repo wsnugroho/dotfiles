@@ -1,5 +1,4 @@
 README.md
-packages/
-dconf/
+system/
 .config/herdr/plugins.json
 .agents/skills/

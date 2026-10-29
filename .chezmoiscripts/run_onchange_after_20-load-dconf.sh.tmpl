@@ -1,6 +1,6 @@
 #!/bin/bash
-# Loads GNOME settings from dconf/gnome.ini. Re-runs when the file changes.
-# gnome.ini hash: {{ include "dconf/gnome.ini" | sha256sum }}
+# Loads GNOME settings from system/dconf/gnome.ini. Re-runs when the file changes.
+# gnome.ini hash: {{ include "system/dconf/gnome.ini" | sha256sum }}
 set -euo pipefail
 command -v dconf >/dev/null || exit 0
-dconf load /org/gnome/ < "{{ .chezmoi.sourceDir }}/dconf/gnome.ini"
+dconf load /org/gnome/ < "{{ .chezmoi.sourceDir }}/system/dconf/gnome.ini"
