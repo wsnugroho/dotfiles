@@ -13,6 +13,10 @@ status_indicators = "symbols"
 delivery = "herdr"
 delay_seconds = 3
 
+[experimental]
+kitty_graphics = true
+pane_history = true
+
 [keys]
 prefix = "ctrl+a"
 last_pane = "prefix+;"
@@ -21,11 +25,7 @@ split_horizontal = "prefix+minus"
 next_agent = "prefix+."
 previous_agent = "prefix+,"
 
-[experimental]
-kitty_graphics = true
-pane_history = true
-
-# herder-reviwr
+# reviewr (persiyanov)
 
 [[keys.command]]
 key = "prefix+r"
@@ -33,7 +33,7 @@ description = "reviewr: toggle pane"
 type = "plugin_action"
 command = "persiyanov.reviewr.toggle"
 
-# plannotator herdr-annotate
+# annotate (plannotator herdr-annotate)
 
 [[keys.command]]
 key = "prefix+a"
@@ -71,29 +71,28 @@ description = "annotate: review terminal text"
 type = "plugin_action"
 command = "annotate.terminal"
 
-# herdr-file-viewer
+# file viewer (herdr-file-viewer)
 
 [[keys.command]]
 key = "prefix+f"
+description = "open file viewer in overlay"
 type = "shell"
 command = "herdr plugin pane open --plugin herdr-file-viewer --entrypoint file-viewer --placement overlay --focus"
-description = "open file viewer in overlay"
 
 [[keys.command]]
 key = "prefix+shift+f"
+description = "open file viewer in tab"
 type = "plugin_action"
 command = "herdr-file-viewer.open-file-viewer-tab"
-description = "open file viewer in tab"
 
 [[keys.command]]
 key = "prefix+d"
+description = "open file viewer at... (split)"
 type = "plugin_action"
 command = "herdr-file-viewer.open-file-viewer-at"
-description = "open file viewer at... (split)"
 
 [[keys.command]]
 key = "prefix+alt+d"
+description = "open file viewer at... (tab)"
 type = "plugin_action"
 command = "herdr-file-viewer.open-file-viewer-at-tab"
-description = "open file viewer at... (tab)"
-
