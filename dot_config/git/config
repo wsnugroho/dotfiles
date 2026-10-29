@@ -1,7 +1,69 @@
 [user]
 	name = Wisnu Nugroho
 	email = wisnunugroho614@gmail.com
+
 [init]
 	defaultBranch = main
+
 [core]
 	editor = nvim
+	pager = delta
+	untrackedCache = true
+
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	navigate = true
+	line-numbers = true
+	dark = true
+
+[push]
+	autoSetupRemote = true
+	followTags = true
+
+[fetch]
+	all = true
+	prune = true
+	pruneTags = true
+
+[pull]
+	ff = only
+
+[rebase]
+	autoStash = true
+	autoSquash = true
+	updateRefs = true
+
+[merge]
+	conflictStyle = zdiff3
+
+[rerere]
+	enabled = true
+	autoUpdate = true
+
+[diff]
+	algorithm = histogram
+	colorMoved = default
+	mnemonicPrefix = true
+	renames = true
+
+[branch]
+	sort = -committerdate
+
+[tag]
+	sort = version:refname
+
+[column]
+	ui = auto
+
+[commit]
+	verbose = true
+
+[help]
+	autocorrect = prompt
+
+[alias]
+	st = status -sb
+	lg = log --graph --oneline --decorate
+	amend = commit --amend --no-edit
