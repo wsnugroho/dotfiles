@@ -1,0 +1,15 @@
+# editors
+*.swp
+*.swo
+*~
+.#*
+
+# os
+.DS_Store
+Thumbs.db
+
+# local tool state
+.claude/settings.local.json
+CLAUDE.local.md
+.mise.local.toml
+.direnv/
