@@ -2,3 +2,4 @@ README.md
 packages/
 dconf/
 .config/herdr/plugins.json
+.agents/skills/
